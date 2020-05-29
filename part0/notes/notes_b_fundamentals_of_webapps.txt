@@ -61,6 +61,7 @@ Single Page App:-
     SPA as shortly, somewhat like the notes example
     New style of displaying the webpages
     status 201 - new resources created after success in POST
+    In the code of the form element, the method POST is not req, the url to post is not req as well.
 
 Javascript Libraries:-
     jQuery, Angular JS, React and Redux, Vue.js
@@ -72,5 +73,8 @@ Full stack - web development:-
 Javascript fatigue:-
     challenging, buggy sometimes and hard to debug as well, developes fast with new concepts or libraries, keep track of this
 
-Time Spent Learning Part 1: 1 Hr 20 Mins
-Time Spent on Exercises: 
+Part0 Learning Link:
+https://fullstackopen.com/en/part0/fundamentals_of_web_apps
+
+Time Spent Learning Part 1: 1 Hr 30 Mins
+Time Spent on Exercises: 45 Mins(0.1-0.3) + 15 Mins(0.4-0.6)

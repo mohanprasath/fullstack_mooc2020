@@ -1,0 +1,67 @@
+p, li, h1{
+    color: red;
+    /*  p is the selector
+        color is the property we are changing in the css
+        blue is the property value we are providing
+        the entire thing is the declaration
+
+        this is an example for element selector
+    */
+}
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  padding: 20px 0;    
+  color: #00539F;
+  text-shadow: 3px 3px 1px black;
+}
+
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+p, li {
+  font-size: 16px;    
+  line-height: 2;
+  letter-spacing: 1px;
+}
+html{
+    font: 12px;
+    font-family: sans-serif;
+    background-color: #00539F;
+}
+body {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #FF9500;
+  padding: 0 20px 20px 20px;
+  border: 5px solid black;
+}
+
+.motto{
+    color:green; /* a class based css */
+}
+
+/*
+todo:
+1. css with id selector
+2. css with attribute selector
+3. pseudo-class selector
+
+Notes:
+padding - border - margin
+innermost - middle - outer
+padding - space between the data and the border
+border  - a solid line outside the border
+margin - space around the outside of the border
+*/
+
+/* For More info see here
+https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics
+*/
