@@ -1,17 +1,6 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
-const App = (props) => {
-  const [selected, setSelected] = useState(0)
-
-  return (
-    <div>
-      {props.anecdotes[selected]}<br />
-      <button onClick={() => {setSelected(Math.floor(Math.random() * (6 - 1 + 1)) + 1)}}>next anectode</button>
-    </div>
-  )
-}
-
 const anecdotes = [
   'If it hurts, do it more often',
   'Adding manpower to a late software project makes it later!',
@@ -20,6 +9,27 @@ const anecdotes = [
   'Premature optimization is the root of all evil.',
   'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
 ]
+
+const App = (props) => {
+  const [selected, setSelected] = useState(0)
+  const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0))
+  //https://stackoverflow.com/questions/1295584/most-efficient-way-to-create-a-zero-filled-javascript-array
+
+  const handleVotes = () => {
+    let newVotes = [...votes]
+    newVotes[selected]++
+    setVotes(newVotes)
+  }
+
+  return (
+    <div>
+      {props.anecdotes[selected]}<br />
+      has {votes[selected]} votes!<br />
+      <button onClick={handleVotes}>vote</button>
+      <button onClick={() => {setSelected( Math.floor(Math.random() * anecdotes.length) )}}>next anectode</button>
+    </div>
+  )
+}
 
 ReactDOM.render(
   <App anecdotes={anecdotes} />,
