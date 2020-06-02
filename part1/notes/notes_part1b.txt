@@ -82,5 +82,46 @@ Functions:
     Decl. simply arrow:
         const square = p => p * p
 
-Time Spent Learning Part 1b: 20 Mins
-Time Spent on Exercises: 15 Mins(1.3-1.5)
+Object methods and "this":
+    this keyword can access the object properties in scope
+    BEWARE: sometimes scope gets lost, ex: when setTimeOut is called on an object
+        the scope becomes global instead of the object being called upon
+        Example decl:
+            const arto = {
+              name: 'Arto Hellas',
+              greet: function() {
+                console.log('hello, my name is ' + this.name)
+              },
+            }
+        Example - before - with error:
+            setTimeout(arto.greet, 1000)
+        Example - after - without error:
+            setTimeout(arto.greet.bind(arto), 1000)
+
+Classes:
+    mentioned before, introduced in ES6
+    Example:
+        class Person {
+          constructor(name, age) {
+            this.name = name
+            this.age = age
+          }
+          greet() {
+            console.log('hello, my name is ' + this.name)
+          }
+        }
+
+        const adam = new Person('Adam Ondra', 35)
+        adam.greet()
+
+        const janja = new Person('Janja Garnbret', 22)
+        janja.greet()
+    Note:
+        use of constructor keyword
+        method decl differs
+        use of const in objects
+        method of calling the classes with new keyword
+
+Time Spent Learning Part 1b: 20 Mins + 10 Mins
+Time Spent on Exercises: 20 Mins(1.3-1.5)
+Cumulative Time for Part1: 45 + 50 Mins

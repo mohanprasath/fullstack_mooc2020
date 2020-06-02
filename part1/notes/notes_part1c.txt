@@ -1,0 +1,105 @@
+Component state, event handlers
+
+Component Helper Functions:
+    Just a function inside a component func
+    Example:
+        const Hello = (props) => {
+          const bornYear = () => {
+            const yearNow = new Date().getFullYear()
+            return yearNow - props.age
+          }
+
+          return (
+            <div>
+              <p>
+                Hello {props.name}, you are {props.age} years old
+              </p>
+              <p>So you were probably born in {bornYear()}</p>
+            </div>
+          )
+        }
+
+Destructuring: Nicer, and sophisticated ways!
+    just many ways of deciding easy ways of using variables inside the comp's
+    Example:
+        props.name, props.age is the previous ways of accesing the props passed to the comp funcs
+        However, we can use the following wasy as well: Consider this happend inside a comp called Hello
+            1. const Hello = (props) => { const { name, age } = props ...
+            2. const Hello = ({ name, age }) => {
+        Also, we know the methods can be declared as following:
+            const bornYear = () => new Date().getFullYear() - age
+
+Page re-rendering:
+    For example, if we keep a counter to know how many times the page has been rendered.
+    Simply, put the ReactDOM.render(<App counter={counter} />,  document.getElementById('root')) inside another function
+    declare the counter in index.js
+    Then call that function, by counting manually, inbetween functions or use a setInterval
+        setInterval(() => {
+          refresh()
+          counter += 1
+        }, 1000)
+
+Stateful component:
+    useState concept introduced in YT video here
+        https://www.youtube.com/watch?v=dpw9EHDh2bM
+    
+    import React, { useState } from 'react' //import
+    const [ counter, setCounter ] = useState(0) 
+
+    what's react's state hook?
+        here useState is a hook into counter and setCounter
+        Learn more here,
+            https://reactjs.org/docs/hooks-state.html
+        Rules of hooks:
+            https://reactjs.org/docs/hooks-rules.html
+    
+    Final code in using the hooks:        
+        setTimeout(
+          () => setCounter(counter + 1),
+          1000
+        )
+    Example Implementation in fololowing path:
+        fullstack_mooc2020/extras/part1/src/index.js
+        Runs like a counter of seconds. Works seamlessly in html!.
+
+Event handling:
+    Handling the actions of the user on an element inside a function
+    Example Implementation in fololowing path:
+        fullstack_mooc2020/extras/part1/src/index.js
+        THe example is to reduce or increase the counter by buttons
+        Note:
+            func setTimeout was commented for this example
+            with it running, there will be problem with manual counters done by the buttons
+
+Event handler is a function:
+    IMPORTANT NOTE:
+        Event handlers must always be a function or a func reference
+        It cannot be a function call, remember it in react situation
+    And seperate the functions, so it can be reused in the future
+    Like decl variables, put them in a const, and call them
+
+Passing state to child components:
+    Child components?
+
+    From above examples, lets make the display of counter a comp
+    Then make a button component with a func, text attribute
+    This makes the code more readable and reusable
+    Refer uncommented code in index.js in the following path:
+        fullstack_mooc2020/extras/part1/src/index.js
+    Works well, commenting inside the code causes bad display issues, TODO: check a decent way to comment inside a return section of the component
+
+Changes in state cause rerendering:
+    Calling a function which changes the state causes the component to rerender.
+
+Refactoring the components:
+    Code can be simply refactored as follows, it feels simple
+        const Display = ({ counter }) => <div>{counter}</div>
+        const Button = ({ handleClick, text }) => (
+          <button onClick={handleClick}>
+            {text}
+          </button>
+        )
+
+Time Spent Learning Part 1b: 15 Mins + 50 Mins
+Time Spent on Exercises:  0 Mins()
+Cumulative Time for Part1: 45 + 50 + 65 Mins

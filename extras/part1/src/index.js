@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 /*import App from './App';*/
@@ -24,11 +24,52 @@ const Hello = (props) => {
         )
 }
 
+const Display = (props) => {
+    return (
+            <div>
+                {props.counter}
+            </div>
+        )
+}
+
+const Button = (props) => {    
+    return (
+        <button onClick={props.handleClick}>
+            {props.text}
+        </button>
+    )
+}
+
+/*
+                // <div>
+                //     {counter}
+                // </div>
+                // <button onClick={() => setCounter(counter + 1)}>
+                //     plus
+                // </button>
+                // <button onClick={() => setCounter(0)}> 
+                //     zero
+                // </button>
+                */
+
 const App = () => {
+
+    const [ counter, setCounter ] = useState(0);
+
+    //setTimeout( () => setCounter(counter + 1), 1000)
+    const increaseByOne = () => setCounter(counter + 1)
+    const decreaseByOne = () => setCounter(counter - 1)
+    const setToZero = () => setCounter(0)
+
     return(
             <div>
                 <Hello name="M" age="25"/>
                 <Hello name="P" age="26"/>
+                
+                <Display counter={counter} />
+                <Button handleClick={increaseByOne} text="plus" />
+                <Button handleClick={setToZero} text="zero" />
+                <Button handleClick={decreaseByOne} text="minus" />
             </div>
         )
 }

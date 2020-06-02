@@ -1,0 +1,74 @@
+Introduction to React:
+    Followed some online lectures first to get all the overview of React with an example
+    https://www.youtube.com/watch?v=hQAHSlTtcmY&t=2s
+
+    method to create a new react app
+        npx create-react-app part1
+        cd part1
+        npm start
+    react runs the part1 app in http://localhost:3000
+    New app runs with complete set, we removed App.js, App.css, App.test.js, logo.svg, setupTests.js and serviceWorker.js
+    Edit index.js as following
+        import React from 'react'
+        import ReactDOM from 'react-dom'
+
+        const App = () => (
+          <div>
+            <p>Hello world</p>
+          </div>
+        )
+
+        ReactDOM.render(<App />, document.getElementById('root'))
+
+Component:
+    In the above content in Index.js the <App /> is the component
+    It is rendered inside the div with id=root in index.html
+    Usually rendered withing the <div> tags
+    Encased in arrow funcs (from ES6)
+    This function can contain any kind of JS code
+
+JSX:
+    Syntax extension to JS
+    https://reactjs.org/docs/introducing-jsx.html
+    See the webpage example for more info
+    Conversion of JSX is done by Babel
+    JSL is XML like, so don't forget to use closing tags />
+
+Multiple Components:
+    components like above can have multiple ones inside themselves as well
+    
+props: passing data to components:
+    things gest Interesting here
+    Example component:
+        const Hello = (props) => {
+          return (
+            <div>
+              <p>Hello {props.name}</p>
+            </div>
+          )
+        }
+    Example props:
+        const App = () => {
+          return (
+            <div>
+              <h1>Greetings</h1>
+              <Hello name="George" />
+              <Hello name="Daisy" />
+            </div>
+          )
+        }
+    More Info Here:
+        https://reactjs.org/docs/components-and-props.html
+
+some notes:
+    Keep console open always
+    use console.log to check most runs
+    compoents must be always capitalized
+    Always use a single root element to put all the components inside
+    If root is not available,
+        1. return a array of components
+        2. or enclose them inside fragments <></>, read more about fragments here
+            https://reactjs.org/docs/fragments.html#short-syntax
+
+Time Spent Learning Part 11: 30 mins
+Time Spent on Exercises: 15 Mins(1.1-1.2)

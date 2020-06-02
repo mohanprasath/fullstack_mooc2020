@@ -1,0 +1,128 @@
+A more complex state, debugging React apps:
+
+Complex state:
+    Having multiple states and their handlers/funcs is tedious
+    We can handle them in multiple ways, check part1d inside extras folder
+    Note:
+        Object spread syntax added in 2018, reduces, specifying every object other than the one modified inside a handler of a component
+        Read Here:
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+    Examples of specifiying a particular state change:
+        setClicks({ ...clicks, left: clicks.left + 1 })
+        (or one fo the forbidden syntax is as follows, DONT USE IT)
+        const handleLeftClick = () => {
+          clicks.left++
+          setClicks(clicks)
+        }
+    RULE:
+        it is forbidden in React to mutate state directly
+    So this type of storing states together is complex,
+    If you can separate them. It's clean and nicer to use.
+    
+    Time:
+        6 Mins(Read) + 3 Mins(Example)
+
+Handling arrays:
+    Added an example for arrays in the part1d of the code
+    The shown example, records which button the used clicked L or R
+    In the code, we have uysed the method concat to put an entry
+    However, we can use the push as well, as shown below:
+    Example:
+        const handleLeftClick = () => {
+          allClicks.push('L')
+          setAll(allClicks)
+          setLeft(left + 1)
+        }
+    BUT, DONT USE THE CODE AS ABOVE.
+    We are directly changing the state's value. Avoid it.
+
+    Time:
+        3 Mins(Read) + 3 Mins(Example)
+
+Conditional rendering:
+    Easier like other programming language
+    Create a component with an if condition for the Click history
+    Show/define what the functions is with a text, when clicked list
+    Refer code in Part1d for example, the component Name is History
+    Note:
+        When page is refreshed, all the count values become 0.
+    Time:
+        3 Mins(Read) + 3 Mins(Example)
+
+Old React:
+    We learn React with hooks. Read more here, 
+        https://reactjs.org/docs/hooks-state.html
+    However, this exists only from React 16.8.0
+        https://www.npmjs.com/package/react/v/16.8.0
+    Before hooks, we only used, JS class syntax
+        https://reactjs.org/docs/react-component.html
+    Time:
+        3 Mins(Read)
+
+Debugging React applications:
+    The first rule of web development:
+        Keep the browser's developer console open at all times.
+    Use console command to try to view the contents passed
+    New command - debugger:
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger
+    Remember to open the developer tools and be in source tab to view the process of debugger
+    While in debugger, we can view the contents of the variables in the console tab
+    We can also add breakpoints, without using debugger, while checking the variables contents in the scope tab
+    Check out the react dev tools in chrome store here,
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/debugger
+    But the dev tool isn't perfect yet.
+    All the info displayed in react dev tools are in the order of definition.
+    Time:
+        8 Mins(Read) + 3 Min(Examples, Code, Testing)
+
+Rules of Hooks:
+    Dont call useState or useEffect inside of a loop, a conditional expression, or any place that is not a function defining a component
+    Time:
+        1 Min(Read)
+
+Event Handling Revisited:
+    use a hook for event handling, as seen before.
+    TODO:
+        How to access two different values inside a func
+    Time:
+        2 Mins(Read)
+
+Function that returns a function:
+    Just examples of defining a skeleton for the function calls 
+    These skeleton allows reusability in my opinion
+    And wecan reduce the coe with/without return statements
+    Time:
+        5 Mins(Read)    
+
+Passing Event Handlers to Child Components:
+    Event handlers can also be passed to child components
+    Example:
+        const Button = (props) => (
+          <button onClick={props.handleClick}>
+            {props.text}
+          </button>
+        )
+    Time:
+        2 Mins(Read)
+
+Do Not Define Components Within Components:
+    Title explains it all. Don't do it. The code will work but dont do it.
+    Time:
+        2 Mins(Read)
+
+Useful Reading:
+    Official Docs
+        https://reactjs.org/docs/hello-world.html
+    Other Courses on React
+        https://egghead.io/
+        https://egghead.io/courses/start-learning-react
+        https://egghead.io/courses/the-beginner-s-guide-to-react
+    Time:
+        2 Mins(Read)
+
+Exercises 1.6.-1.14.:
+    
+
+Time Spent Learning Part 1b: 49 Mins
+Time Spent on Exercises:  5 Mins(Exercises 1.6.-1.14.)
+Cumulative Time for Part1: 45 + 50 + 65 Mins
