@@ -124,5 +124,5 @@ Exercises 1.6.-1.14.:
     
 
 Time Spent Learning Part 1b: 49 Mins
-Time Spent on Exercises:  35 + 10 +  Mins(Exercises 1.6.-1.14.)
-Cumulative Time for Part1: 45 + 50 + 65 Mins
+Time Spent on Exercises:  35 + 10 + 10 + 15 Mins(Exercises 1.6.-1.14.)
+Cumulative Time for Part1: 45 + 50 + 65 + 120 Mins
