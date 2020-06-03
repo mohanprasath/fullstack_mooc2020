@@ -1,0 +1,62 @@
+A Rendering a collection, modules:
+    console.log
+        What's the difference between an experienced JavaScript programmer and a rookie? The experienced one uses console.log 10-100 times more.
+        Examples of syntax:
+        console.log('props value is' + props)
+        console.log('props value is', props)
+
+    Protip: Visual Studio Code snippets
+        https://code.visualstudio.com/docs/editor/userdefinedsnippets#_creating-your-own-snippets
+        TODO: practice syntax in vs code
+
+    JavaScript Arrays:
+        New Methods to learn:
+            find, filter, map - on arrays
+        YT Playlist on functional programming in JS:
+            https://www.youtube.com/playlist?list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84
+
+    Event handlers revisited
+        https://fullstackopen.com/en/part1/a_more_complex_state_debugging_react_apps#event-handling-revisited
+
+    Rendering collections
+        Refer part2a in extras folder
+        Examples:
+            using map
+        Note:
+            map is operated on an array so it has to be inside a {}, and you can mix html inside but all js variables must be in {}
+
+    Key-attribute
+        unique id is required for each entry inside an ul. 
+        For example, refer part2a in extras folder.
+
+    Map
+        For example, refer part2a in extras folder.
+        Example:
+            const result = notes.map(note => note.id)
+            console.log(result)        
+
+    Anti-pattern: array indexes as keys
+        we can generate index value while passing data to a map func. But it's not recommended.
+        For Example:
+            <ul>
+              {notes.map((note, i) => 
+                <li key={i}>
+                  {note.content}
+                </li>
+              )}
+            </ul>
+        Read here for more info, TODO
+            https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318
+
+    Refactoring modules
+        Refer part2a for example
+        Simply move components to their respective js files in different folder, and the App to App.js as well
+
+    When the application breaks
+        :) Use console.log
+
+    Exercises 2.1.-2.5.
+
+Time Spent Learning Part 2a: 30 Mins
+Time Spent on Exercises:  Mins(Exercises 2.1.-2.5)
+Cumulative Time for Part2:  Mins
