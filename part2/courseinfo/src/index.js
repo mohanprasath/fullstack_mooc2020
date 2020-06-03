@@ -1,8 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
+
 import Course from './components/Course'
-import Total from './components/Total';
-import Header from './components/Header'
 
 const App = () => {
   const courses = [{
@@ -53,10 +52,8 @@ const App = () => {
     <div>
       <h1>Web development curriculum</h1>
       {courses.map( course => 
-        <div key ={course.id} >
-          <Header course={course.name} />
-          <Course parts={course.parts}/>
-          <Total parts={course.parts} />
+        <div key ={course.id} >         
+          <Course key={course.id} course={course} />
         </div>
       )}
     </div>

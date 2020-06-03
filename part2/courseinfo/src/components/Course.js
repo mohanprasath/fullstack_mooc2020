@@ -1,11 +1,44 @@
-import React from 'react';
-import Part from './Part'
+import React from 'react'
 
+const Header = ({course}) => {
+    return (
+    <h3>{course}</h3>
+    )
+}
 
-const Course = ({parts}) => {
+const Total = ({parts}) => {
+    const total = parts.reduce( (tempSum, part) => { 
+        return tempSum + part.exercises;
+      }, 0);
+    return (
+        <p>
+            <b>total of {total} exercises</b>
+        </p>
+    )
+}
+
+const Data = ({parts}) => {
+    return (
+      <div>
+        {parts.map( part => 
+          <Part key={part.id} part={part} />
+        )}
+      </div>
+    );
+  }
+
+const Part = ({part}) => {
+    return (
+    <p>{part.name} {part.exercises}</p>
+    )
+}
+
+const Course = ({course}) => {
     return(
         <div>
-            {parts.map((part => <Part key={part.id} part={part} />))}                     
+            <Header course={course.name} />
+            <Data parts={course.parts}/>                 
+            <Total parts={course.parts} />
         </div>
     )
 }
