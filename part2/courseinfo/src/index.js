@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Course from './components/Course'
+import Total from './components/Total';
+import Header from './components/Header'
 
 const App = () => {
-  const course = {
+  const courses = [{
     id: 1,
     name: 'Half Stack application development',
     parts: [
@@ -28,12 +30,35 @@ const App = () => {
         id: 4
       }
     ]
+  },
+  {
+    name: 'Node.js',
+    id: 2,
+    parts: [
+      {
+        name: 'Routing',
+        exercises: 3,
+        id: 1
+      },
+      {
+        name: 'Middlewares',
+        exercises: 7,
+        id: 2
+      }
+    ]
   }
+]
 
   return (
     <div>
-      <h1>{course.name}</h1>
-      <Course parts={course.parts} /><br />
+      <h1>Web development curriculum</h1>
+      {courses.map( course => 
+        <div key ={course.id} >
+          <Header course={course.name} />
+          <Course parts={course.parts}/>
+          <Total parts={course.parts} />
+        </div>
+      )}
     </div>
       )
 }
