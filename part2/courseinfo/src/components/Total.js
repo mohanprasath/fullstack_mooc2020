@@ -5,7 +5,9 @@ const Total = ({parts}) => {
         return tempSum + part.exercises;
       }, 0);
     return (
-        <p><b>total of {total} exercises</b></p>
+        <p>
+            <b>total of {total} exercises</b>
+        </p>
     )
 }
 
