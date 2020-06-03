@@ -11,9 +11,11 @@ Part 2b Forms
 
     Exercises 2.6.-2.10:
         2.6 Similar to part2b in extras folder
-        
+        2.7 array functions are very useful, check them out here,
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+        2.8 
 
 
 Time Spent Learning Part 2b: 45 Mins
-Time Spent on Exercises:  Mins(Exercises 2.6.-2.10)
+Time Spent on Exercises: 12 + 10 +  Mins(Exercises 2.6.-2.10)
 Cumulative Time for Part2: 120 Mins
