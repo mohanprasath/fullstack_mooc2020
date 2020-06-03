@@ -1,0 +1,19 @@
+Part 2b Forms
+    Notes:-
+        A good example for handling form events is implemented in extrax/part2b
+        Remember to handle all events that can happen inside the form
+        And use components and useState very nicely inside the event handlers
+
+    Filtering Displayed Elements:
+        Using conditional op in the above example, to show the notes that are
+        marked important.
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+
+    Exercises 2.6.-2.10:
+        2.6 Similar to part2b in extras folder
+        
+
+
+Time Spent Learning Part 2b: 45 Mins
+Time Spent on Exercises:  Mins(Exercises 2.6.-2.10)
+Cumulative Time for Part2: 120 Mins

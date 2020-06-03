@@ -58,5 +58,5 @@ A Rendering a collection, modules:
     Exercises 2.1.-2.5.
 
 Time Spent Learning Part 2a: 30 Mins
-Time Spent on Exercises:  Mins(Exercises 2.1.-2.5)
-Cumulative Time for Part2:  Mins
+Time Spent on Exercises: 90 Mins(Exercises 2.1.-2.5)
+Cumulative Time for Part2: 120 Mins
