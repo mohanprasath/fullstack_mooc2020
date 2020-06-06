@@ -131,7 +131,11 @@ Part 2C Getting data from server - AWESOME SECTION, YOU CAN LEARN A LOT OF IMPOR
     Exercises 2.11.-2.14.
         TODO Learn handling numeric auto generation package
         TODO how to set then unique keys an example
+        2.11 phonebook 20 Mins
+        2.12 data for countries, step 1 - 2 Hours
+        2.13
+        2.14
 
 Time Spent Learning Part 2C: 230 Mins
-Time Spent on Exercises: (Exercises 2.11.-2.14)
+Time Spent on Exercises: 140+ (Exercises 2.11.-2.14)
 Cumulative Time for Part2: 340 + 230 +  Mins
