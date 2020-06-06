@@ -134,8 +134,8 @@ Part 2C Getting data from server - AWESOME SECTION, YOU CAN LEARN A LOT OF IMPOR
         2.11 phonebook 20 Mins
         2.12 data for countries, step 1 - 2 Hours
         2.13*: Data for countries, step2 - 3 Mins
-        2.14
+        2.14*: Data for countries, step3 - 60 Mins BEST EXPERIENCE :)
 
 Time Spent Learning Part 2C: 230 Mins
-Time Spent on Exercises: 143 + (Exercises 2.11.-2.14)
-Cumulative Time for Part2: 340 + 230 +  Mins
+Time Spent on Exercises: 200 + (Exercises 2.11.-2.14)
+Cumulative Time for Part2: 340 + 430 Mins
