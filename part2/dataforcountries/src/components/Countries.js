@@ -17,7 +17,7 @@ const Countries = ({countries, setCountries, filterCountry, setFilterCountry}) =
             )
           } else {
               return(
-              <div><ul>{results.map(result => <li key={result.name}>{result.name}</li>)}</ul></div>
+              <div><ul>{results.map(country => <li key={country.name}>{country.name} <button key={country.name} onClick={() => setFilterCountry(country.name)}>show</button></li>)}</ul></div>
               )
           }
 }
