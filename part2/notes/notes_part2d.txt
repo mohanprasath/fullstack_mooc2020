@@ -1,0 +1,82 @@
+Part 2d Altering Data in Server
+    Notes:-
+        1. REST Definitions
+            https://en.wikipedia.org/wiki/Representational_state_transfer
+        2. json-server we have used so far claims to be a REST API
+        3. some conventions used in REST are
+            https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_Web_services
+        4. about routes 
+            https://github.com/typicode/json-server#routes
+
+    REST:-
+        1. json-server used REST methods in urls like notes/id
+        2. We have to explicitly specify the content-type in our GET/POST 
+
+    Sending Data to the Server:-
+        1. refer extras/part2b for the example
+        2. We add a post method to sent some notes to the server
+            axios
+            .post('http://localhost:3001/notes', noteObject)
+            .then(response => {
+            console.log(response)
+            })
+        3. id attrbute where we added the length+1 is removed 
+        4. axios auto sets the json types in the response object
+        5. some tools to help us in debugging
+            https://docs.npmjs.com/creating-node-js-modules
+        6. original example code is here
+            https://github.com/fullstack-hy2020/part2-notes/tree/part2-5
+
+    Changing the importance of notes:-
+        1. Refer code in extras/part2b
+        2. TODO how does this syntax ...notes does not add the new note as a duplicate 
+        3. shallow copy is used here    
+            https://en.wikipedia.org/wiki/Object_copying#Shallow_copy      
+
+    Extracting communication with the backend into a separate module
+        1. Single responsibility principle
+            https://en.wikipedia.org/wiki/Single-responsibility_principle
+        2. A detailed service folder is created to handle repetitive code
+        3. The results look better
+        4. Some more resources to look into TODO
+            a. Promise Chaninig
+                https://javascript.info/promise-chaining
+            b. more
+                https://github.com/getify/You-Dont-Know-JS/tree/1st-ed
+            c. more 
+                https://github.com/getify/You-Dont-Know-JS/blob/1st-ed/async%20%26%20performance/ch3.md
+
+    Cleaner syntax for defining object literals:-
+        1. The code for the service while returning some functions is
+            export default { 
+                getAll: getAll, 
+                create: create, 
+                update: update 
+                }
+            It can be written simple as, because the keys and values are the same
+                { 
+                getAll, 
+                create, 
+                update 
+                }
+        2. The above simple structure was introduced in 
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer#Property_definitions
+
+    Promises and errors
+        1. We know three states in promises: pending, rejected, fullfilled
+        2. We use catch after then function in a promise to handle rejected
+        3. This kind of attaching functions to promise is called a promise chaining
+            https://javascript.info/promise-chaining
+        4. Use alert only during debug mostly, other functions like filter can be effectively used to handle the bugs/edit
+        5. Sample code of the above example can be found here,
+            https://github.com/fullstack-hy2020/part2-notes/tree/part2-6
+
+    Exercises 2.15.-2.18.
+        2.15 Phonebook step7 20 Mins
+        2.16 Phonebook step8
+        2.17 Phonebook step9
+        2.18* Phonebook step10
+
+Time Spent Learning Part 2D: 80 Mins
+Time Spent on Exercises:   (Exercises 2.15.-2.18)
+Cumulative Time for Part2: 340 + 430 Mins

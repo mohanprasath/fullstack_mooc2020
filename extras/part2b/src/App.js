@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Note from './components/Note'
-import axios from 'axios'
+import noteService from './services/notes'
 
 const App = (props) => {
   const [notes, setNotes] = useState(props.notes)
@@ -19,14 +19,16 @@ const App = (props) => {
   // console.log('render', notes.length, 'notes')
   useEffect(() => {
     console.log('effect')
+    
+    noteService.getAll().then(initialNotes  => setNotes(initialNotes))
+
+    //const eventHandler = response => {
+    //  console.log('promise fulfilled')
+    //  setNotes(response.data)
+    //}
   
-    const eventHandler = response => {
-      console.log('promise fulfilled')
-      setNotes(response.data)
-    }
-  
-    const promise = axios.get('http://localhost:3001/notes')
-    promise.then(eventHandler)
+    //const promise = axios.get('http://localhost:3001/notes')
+    //promise.then(eventHandler)
   }, [])
 
   const addNote = (event) => {
@@ -35,16 +37,45 @@ const App = (props) => {
       content: newNote,
       date: new Date().toISOString(),
       important: Math.random() > 0.5,
-      id: notes.length + 1,
+      // id is removed in part2d examplesls
+      //id: notes.length + 1,
     }
   
-    setNotes(notes.concat(noteObject))
-    setNewNote('')
+    noteService.create(noteObject).then(
+      returnedNote => {
+          setNotes(notes.concat(returnedNote))
+          setNewNote('')
+        }
+    )
+
+    // axios
+    // .post('http://localhost:3001/notes', noteObject)
+    // .then(response => {
+    //   console.log(response)
+    //   setNotes(notes.concat(noteObject))
+    //   setNewNote('')
+    // })
+    
+    
   }
 
   const handleNoteChange = (event) => {
     console.log(event.target.value)
     setNewNote(event.target.value)
+  }
+
+  const toggleImportanceOf = id =>{
+    //console.log('importance of ${id} needs to be toggled')
+    //const url = `http://localhost:3001/notes/${id}`
+    const note = notes.find(n => n.id === id)
+    const changedNote = { ...note, important: !note.important }
+
+    noteService.update(id, changedNote).then(returnedNote => {
+      setNotes(notes.map(note => note.id !== id ? note : returnedNote))
+    })
+    //axios.put(url, changedNote).then(response => {
+    //  setNotes(notes.map(note => note.id !== id ? note : response.data))
+    //})
   }
 
   const notesToShow = showAll
@@ -61,7 +92,7 @@ const App = (props) => {
       </div>      
       <ul>
         {notesToShow.map((note, i) => 
-          <Note key={i} note={note} />
+          <Note key={i} note={note} importance={note.important} toggleImportance={()=> toggleImportanceOf(note.id)}/>
         )}
       </ul>
       <form onSubmit={addNote}>

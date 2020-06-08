@@ -33,19 +33,26 @@ const App = () => {
     event.preventDefault()
     const newNameObj = {
       name: newName,
-      number: newNumber
+      number: newNumber,
+      id: persons.length +1
     }
     if (persons.find(person => person.name === newName)){
       alert(newName +' is already added to phonebook')
     } else {
-      setPersons(persons.concat(newNameObj))
-      setNewName('')
-      setNewNumber('')
+      axios.post(`http://localhost:3001/persons/`, newNameObj).then(response => {
+        persons.concat(response.data)
+        setNewName('')
+        setNewNumber('')
+      }
+        ).catch(
+        console.log("Error in string the phone number in the database")
+      )
+      
     }    
   }
   
   let personsFiltered = persons.filter(p => p.name.toLowerCase().indexOf(filter.toLowerCase()) > -1);
-  let matched = personsFiltered.map(p => <div>{p.name} {p.number}</div>);
+  let matched = personsFiltered.map(p => <div id={p.id}>{p.name} {p.number}</div>);
 
   return (
     <div>
