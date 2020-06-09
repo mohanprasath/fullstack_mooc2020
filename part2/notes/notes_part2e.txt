@@ -1,0 +1,36 @@
+Adding styles to React app
+    https://fullstackopen.com/en/part2/adding_styles_to_react_app
+    1. phonebook is added with a css file called index.css
+    2. Read more about css selectors here
+        https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors
+    3. IMPORTANT difference, In HTML, while declaring the class name we do it like this,
+            <li class="note">some text...</li>
+        but in React, it's className sttribute instead
+            <li className='note'>
+
+    Improved error message:-
+        1. Added a new component called Notification that can prepare an error message
+        2. the code is in extras/part2b folder
+        3. Sample code can be found here
+            https://github.com/fullstack-hy2020/part2-notes/tree/part2-7
+
+    Inline styles:-
+        1. Inline styles are allowed in React
+            https://react-cn.github.io/react/tips/inline-styles.html
+        2. the values in css that are string are in quotes
+        3. An example footer is added in the code
+        4. Read more about the pseudo-classes here, TODO
+            https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes
+        5. Sample code in github can be found here,
+            https://github.com/fullstack-hy2020/part2-notes/tree/part2-8
+        6. IMPORTANT - React philosophy
+            using inline styles, keep the logical component and all the required stuff in one place
+            Instead of splitting them into various files, so the single component can be reused.
+
+    Exercises 2.19.-2.20.:- Good Exercises
+        2.19: Phonebook step11 10 Mins
+        2.20*: Phonebook step12 20 Mins
+
+Time Spent Learning Part 2D: 60 Mins
+Time Spent on Exercises: 30 (Exercises 2.15.-2.18)
+Cumulative Time for Part2: 990 Mins ~ 16 Hours
