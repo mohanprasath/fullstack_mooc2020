@@ -31,11 +31,18 @@ const App = () => {
     const newNameObj = {
       name: newName,
       number: newNumber,
-      id: persons.length +1
     }
     if (persons.find(person => person.name === newName)){
-      alert(newName +' is already added to phonebook')
+      let matchedPerson = persons.find(person => person.name === newName)
+      console.log(matchedPerson.id);
+      newNameObj.id = matchedPerson.id
+      if (window.confirm(newName+' is already added to phonebook. Do you like to replace the old number with a newer number?')){
+        phonebookService.update(matchedPerson.id, newNameObj).then(newPerson => {
+          persons.map(person => person.id === newNameObj.id?newPerson:person)
+        })
+      }
     } else {
+      newNameObj.id = persons.length +1
       phonebookService.create(newNameObj).then(newPersons => {
         persons.concat(newPersons)
         setNewName('')
