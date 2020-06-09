@@ -45,9 +45,19 @@ const App = () => {
       )     
     }    
   }
+
+  const removePerson = (event) => {
+    let result = window.confirm(`Delete ${event.target.name}?`);
+    let id = event.target.id;
+    let remainingPersons = persons.filter(person => person.id !== id);
+    //console.log(result, event.target.id)
+    if (result) {
+      phonebookService.remove(event.target.id).then(() => setPersons(remainingPersons))
+    }
+  }
   
   let personsFiltered = persons.filter(p => p.name.toLowerCase().indexOf(filter.toLowerCase()) > -1);
-  let matched = personsFiltered.map(p => <div id={p.id}>{p.name} {p.number}</div>);
+  let matched = personsFiltered.map(p => <div key={p.id}>{p.name} {p.number} <button id={p.id} name={p.name} onClick={removePerson}>Delete</button></div>);
 
   return (
     <div>
