@@ -66,16 +66,7 @@ let persons = [
     return Math.floor(Math.random() * Math.floor(Number.MAX_SAFE_INTEGER))
   }
 
-    const person = {
-      name: body.name,
-      number: body.number,
-      id: generateId(),
-    }
   
-    notes = notes.concat(note)
-  
-    response.json(note)
-  })
 
   const PORT = 3001
   app.listen(PORT, () => {
