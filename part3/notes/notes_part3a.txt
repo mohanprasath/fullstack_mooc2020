@@ -153,15 +153,16 @@ A Node.js and Express:
         3.2: Phonebook backend step2 - 10 Mins
         3.3: Phonebook backend step3 - 2 Mins
         3.4: Phonebook backend step4 - 10 Mins
-        3.5: Phonebook backend step5
-        3.6: Phonebook backend step6
+        3.5: Phonebook backend step5 - 10 Mins
+        3.6: Phonebook backend step6 - 5 Mins
 
     About HTTP request types:-
+    
 
     Middleware:-
 
     Exercises 3.7.-3.8.:-
 
 Time Spent Learning Part 3a: 150 Mins
-Time Spent on Exercises: Mins(Exercises 3.7-3.8)
+Time Spent on Exercises: ~35 + Mins(Exercises 3.7-3.8)
 Cumulative Time for Part3:  Mins
