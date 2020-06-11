@@ -152,7 +152,7 @@ A Node.js and Express:
             7. run it using either npm start or using npm run dev
         3.2: Phonebook backend step2 - 10 Mins
         3.3: Phonebook backend step3 - 2 Mins
-        3.4: Phonebook backend step4
+        3.4: Phonebook backend step4 - 10 Mins
         3.5: Phonebook backend step5
         3.6: Phonebook backend step6
 

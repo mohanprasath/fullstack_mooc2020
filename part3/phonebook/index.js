@@ -23,6 +23,11 @@ let persons = [
         "name": "Mary Poppendieck",
         "number": "39-23-6423122",
         "id": 4
+      },
+      {
+        "name": "Moomin Papa",
+        "number": "12-23-6465122",
+        "id": 5
       }
   ]
 
@@ -49,6 +54,27 @@ let persons = [
     }else {
         response.status(404).end()
     }
+  })
+
+  app.delete('/api/persons/:id', (request, response) => {
+    const id = Number(request.params.id)
+    persons = persons.filter(person => person.id !== id)
+    response.status(204).end()
+  })
+
+  const generateId = () => {
+    return Math.floor(Math.random() * Math.floor(Number.MAX_SAFE_INTEGER))
+  }
+
+    const person = {
+      name: body.name,
+      number: body.number,
+      id: generateId(),
+    }
+  
+    notes = notes.concat(note)
+  
+    response.json(note)
   })
 
   const PORT = 3001
