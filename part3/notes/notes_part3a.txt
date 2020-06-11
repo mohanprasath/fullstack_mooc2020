@@ -1,0 +1,167 @@
+A Node.js and Express:
+    Notes:-
+        1. Backend on top of node.js is our example
+        2. babel is used to convert newer js to a supportable version
+        3. In this code not all is react code, rather node based
+        4. Code is in extras\part3a
+            a. create a package.json by running npm init
+            b. created an index.js with a console.log command
+            c. run the code using npm start will run the start script
+            d. npm test when ran, raised errors in win, linux as well TODO
+
+    Simple web server:-
+        1. code is in extras/part3a
+        2. a simple server that returns a hello worl text as plain response
+        3. we are then binding the port 3001 to the app of http server
+        4. another example is returning json from the server
+        5. Install the json server and restart the server
+            npm install -g json-server
+
+    Express:-
+        1. some libs created to be helpful ins erver side creation
+            http://expressjs.com/
+            npm install express --save
+        2. after intalling, the dependency is added to the package.json file
+            {
+            // ...
+            "dependencies": {
+                "express": "^4.17.1"
+            }
+            }
+        3. go to cd/node_modules to check if the express is installed
+        4. transitive dependencies exists for packages in node modules dir
+            https://lexi-lambda.github.io/blog/2016/08/24/understanding-the-npm-dependency-model/
+        5. we are using sematic versioning in npm
+            https://docs.npmjs.com/getting-started/semantic-versioning
+        6. npm update
+        7. npm install
+        8. we work under the asumption that the modules we use will be backwards compatble
+            https://en.wikipedia.org/wiki/Backward_compatibility
+
+    Web and express:-
+        1. So simple and nice compared to python and django, may be
+        2. chec the code, it simple structure, declare the app for express
+        3. use the app object to invoke methods like get, post, listen etc
+        4. remember node-repl
+            a command line tool for node js
+
+    nodemon:-
+        1. React changes are seen in real time in the web pages
+        2. While in node.js we have to manually restart the server, it resolved by nodemon
+        3. nodemon will watch the files in the directory in which nodemon was started, and if any files change, nodemon will automatically restart your node application.
+            npm install --save-dev nodemon
+        4. remember that package.json, muct have the nodemon as devDependencies and not as dependencies
+        5. even after using this, we have to manually refresh the page, but not needed to restart the server
+        6. this can be done through hot reload, add the code to package.json in scripts
+            "dev": "nodemon index.js",
+        7. while starting the server next time, use npm run dev
+
+    REST:-
+        1. Representational State Transfer aka REST
+            https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm
+        2. Narrow view of REST  
+            https://en.wikipedia.org/wiki/Representational_state_transfer#Applied_to_Web_services
+        3. In notes exercise, we had an url to request the json, this is a resource specific URL
+        4. So in REST, every resource has an URL
+        5. some well known functions
+            GET(ID)     - fetches a single resource
+            POST        - creates a new resource based on the request data
+            GET(ALL)    - fetches all resources in the collection
+            DELETE(ID)  - removes the identified resource
+            PUT(ID)     - replaces the entire identified resource with the request data
+            PATCH(ID)   - replaces a part of the identified resource with the request data
+
+    Fetching a single resource:-
+        1. we are creating route!, like @path in django, or route in react
+        2. This code is for accesing a resource by their ID
+            app.get('/api/notes/:id', (request, response) => {
+            const id = request.params.id
+            const note = notes.find(note => note.id === id)
+            response.json(note)
+            })
+        3. the above code is in the server, so we find the exact note with an id from request
+        4. then send the note to the request
+        5. However, we need to keep in mind that the request variables cannot be in th esame type as the notes
+        6. Manullay type cast the id to Number id
+        7. we can find the type of thigs using the typeof command
+        8. and remeber to handle if the objects doesn't exists
+        9. use response.status(404).end()
+        10. FURTHER, WE CAN CHECK THE OBJECT IS undefined directly in the if statement
+            https://developer.mozilla.org/en-US/docs/Glossary/Truthy
+            https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+        11. Refer code in extras/part3a
+
+    Deleting resources:-
+        1. we can use http delete as follows
+            app.delete('/api/notes/:id', (request, response) => {
+            const id = Number(request.params.id)
+            notes = notes.filter(note => note.id !== id)
+
+            response.status(204).end()
+            })
+        2. But we need a tool to make a delete request, ie postman
+
+    Postman:-
+        1. tool to make testing and othr tasks easier
+            https://www.postman.com/downloads/
+        2. Great tool!. 
+
+    The Visual Studio Code REST client:-
+        1. Another Nice tool
+            https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+        2. try the folloowing code in get_all_notes.txt
+            GET http://localhost:3001/api/notes/
+            now press the send request button on top of the file and you can see the reaults on the side
+        3. Official docs to use the rest client in the vs code
+            https://github.com/Huachao/vscode-restclient/blob/master/README.md#usage
+
+    Receiving data:-
+        1. we can specify the type of data to use by default in express while in REST
+            app.use(express.json())
+        2. use postman to generate a post method to the server
+        3. without proper content type in header we cannot process the data well
+        4. you can repeat the same process using the rest client in vs code
+            POST http://localhost:3000/api/notes/
+            Content-Type: application/json
+            {
+                "content": "VS COde REST Client is awesome",
+                "important": false
+            }
+        5. by consensus, postman requires us to mage the rest files manually,
+        6. But in VS code we can keep then in the ide itself
+        7. Important sidenote
+            headers need to be given proper attrs
+            remember to use the get meothod to get a header and see thier attrs
+            in VS code rest client, an empty line after the request indicates an empty header attrs
+            BEWARE of this error
+            console.log(request.headers)
+        8. Here we handle the post again with new code, and handle when data is empty
+            https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-1
+        9. A unique example of using Math.max(...notes.map(n=>n.id))
+
+    Exercises 3.1.-3.6.:-
+        3.1: Phonebook backend step1 - 15 Mins
+            1. Create a folder, then run npm init
+            2. Fill the required details in the consolse to be added to the package.json
+            3. set the start, test, dev cpommands in the package.json file
+            4. install the required packages like express, nodemon
+                npm install --save-dev nodemon
+                npm install express --save  
+            5. package.json file will be updated with the required dependencies
+            6. Fill the index.js with the required code
+            7. run it using either npm start or using npm run dev
+        3.2: Phonebook backend step2
+        3.3: Phonebook backend step3
+        3.4: Phonebook backend step4
+        3.5: Phonebook backend step5
+        3.6: Phonebook backend step6
+
+    About HTTP request types:-
+
+    Middleware:-
+
+    Exercises 3.7.-3.8.:-
+
+Time Spent Learning Part 3a: 150 Mins
+Time Spent on Exercises: Mins(Exercises 3.7-3.8)
+Cumulative Time for Part3:  Mins

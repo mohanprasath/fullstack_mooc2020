@@ -1,0 +1,23 @@
+{
+  "name": "phonebook",
+  "version": "1.0.0",
+  "description": "MOOC Course 2020 on Full Stack Part 3",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \\\"Phone Book Application\\\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "phonebook"
+  ],
+  "author": "Mohan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
