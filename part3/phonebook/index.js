@@ -66,7 +66,31 @@ let persons = [
     return Math.floor(Math.random() * Math.floor(Number.MAX_SAFE_INTEGER))
   }
 
+  app.post('/api/persons', (request, response) => {
+    const body = request.body
+
+    if (!body.number) {
+      return response.status(400).json({ 
+        error: 'Number is missing' 
+      })
+    }
+
+    if (!body.name) {
+      return response.status(400).json({ 
+        error: 'Name is missing' 
+      })
+    }
   
+    const person = {
+      name: body.name,
+      number: body.number,
+      id: generateId(),
+    }
+  
+    notes = notes.concat(note)
+  
+    response.json(note)
+  })
 
   const PORT = 3001
   app.listen(PORT, () => {
