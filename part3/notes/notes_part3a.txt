@@ -157,12 +157,43 @@ A Node.js and Express:
         3.6: Phonebook backend step6 - 5 Mins
 
     About HTTP request types:-
+        1. HTTP Standards have two required properties of requestsÖ safety and idempotence
+        2. Such that no requests should cause any side effects on the server
+        3. Idempotence is the property of certain operations in mathematics and computer science whereby they can be applied multiple times without changing the result beyond the initial application.
+        4. So all N>0 requests should have the same results
+        5. Examples of such HTTP requests are GET, HEAD, PUT, DELETE
+        6. But POST is neither safe nor idempotent, since it changes the state of the server
     
-
     Middleware:-
+        1. express json-parser is a Middleware
+            https://expressjs.com/en/api.html
+            http://expressjs.com/en/guide/using-middleware.html
+        2. Middleware are functions that can be used for handling request and response objects.
+        3. here using many middlewatre will follow the order of execution
+        4. An exampl is as follows,
+            const requestLogger = (request, response, next) => {
+            console.log('Method:', request.method)
+            console.log('Path:  ', request.path)
+            console.log('Body:  ', request.body)
+            console.log('---')
+            next()
+            }
+            and we can use the above one using the following call,
+                app.use(requestLogger)
+        5. Remember all middleware bu default executes before the route handlers
+        6. We can add them even after route events
+        7. Refer the complete repo code here
+            https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-2
 
     Exercises 3.7.-3.8.:-
+        3.7: Phonebook backend step7    - 
+            npm install morgan
+            npm install -g npm
+            In Index.js, add
+                const morgan = require('morgan')
+                app.use(morgan('tiny'))
+        3.8*: Phonebook backend step8   - 
 
-Time Spent Learning Part 3a: 150 Mins
-Time Spent on Exercises: ~35 + Mins(Exercises 3.7-3.8)
+Time Spent Learning Part 3a: 155 Mins
+Time Spent on Exercises: ~35 + 20 Mins(Exercises 3.7-3.8)
 Cumulative Time for Part3:  Mins
