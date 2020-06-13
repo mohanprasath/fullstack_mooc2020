@@ -1,0 +1,18 @@
+Part3b Deploying app to internet:
+    Same origin policy and CORS
+
+    Application to the Internet
+
+    Frontend production build
+
+    Serving static files from the backend
+
+    Streamlining deploying of the frontend
+
+    Proxy
+    
+    Exercises 3.9.-3.11.
+
+Time Spent Learning Part 3a:  Mins
+Time Spent on Exercises:  Mins(Exercises 3.7-3.8)
+Cumulative Time for Part3: 210+ Mins

@@ -186,14 +186,20 @@ A Node.js and Express:
             https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-2
 
     Exercises 3.7.-3.8.:-
-        3.7: Phonebook backend step7    - 
+        3.7: Phonebook backend step7    - 20 Mins
             npm install morgan
             npm install -g npm
             In Index.js, add
                 const morgan = require('morgan')
                 app.use(morgan('tiny'))
-        3.8*: Phonebook backend step8   - 
+        3.8*: Phonebook backend step8   - 5 Mins
+            Info:
+                https://github.com/expressjs/morgan#creating-new-tokens
+                https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+            Code:
+                morgan.token('data', function (req) { return JSON.stringify(req.body) })
+                app.use(morgan(':method :url :status :res[content-length] - :response-time ms :data'))
 
-Time Spent Learning Part 3a: 155 Mins
-Time Spent on Exercises: ~35 + 20 Mins(Exercises 3.7-3.8)
-Cumulative Time for Part3:  Mins
+Time Spent Learning Part 3a: ~155 Mins
+Time Spent on Exercises: 60 Mins(Exercises 3.7-3.8)
+Cumulative Time for Part3: 210 Mins
