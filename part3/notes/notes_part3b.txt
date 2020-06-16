@@ -99,8 +99,10 @@ Part3b Deploying app to internet:
             copy the build folder to the phonebook backend completed in part3a
             install the dependencies in node_modules
             refer for more code in index.js to complete this Exercise
-        3.10 phonebook backend step10   -
-        3.11 phonebook full stack       -
+        3.10 phonebook backend step10   - 10 Mins
+            when using git init, it makes the github dekstop app forget the backend phonebook folder 
+            try to remove the .git folder to add this to gihub again
+        3.11 phonebook full stack       - 
 
 Time Spent Learning Part 3b: 5 + 15 +  Mins
 Time Spent on Exercises: 120 Mins(Exercises 3.7-3.8)

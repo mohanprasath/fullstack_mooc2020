@@ -42,13 +42,11 @@ let persons =
     ]
 
   app.get('/', (req, res) => {
-    console.log("path /")
     res.sendFile("./build/static/index.html")
     // send html automatically
   })
   
   app.get('/api/persons', (req, res) => {
-    console.log("path /api/persons")
     res.json(persons)
     // send json automatically
   })
