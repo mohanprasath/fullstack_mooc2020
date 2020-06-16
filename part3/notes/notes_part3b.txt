@@ -1,18 +1,107 @@
 Part3b Deploying app to internet:
-    Same origin policy and CORS
+    Notes:-
+        1. in part 2 of ohonebook, we used the url/notes format, in part3 backend we are using url/api/notes
+        2. in part 2  phonebook, we have a services folder with notes.js
+        3. There change the baseURL to the api format,
+            from    const baseUrl = 'http://localhost:3001/persons'
+            to      const baseUrl = 'http://localhost:3001/api/notes'
+        4. The above code will throw an error about CORS policy
+        5. Note: the error occurs if we acccess the backend from a frontend in port 3000, 
+            but we can directly access the backend in 3001 and through postman
+        6. Run the following commands inside the part3b folder
+            npm install --save-dev nodemon
+            npm install express --save  
 
-    Application to the Internet
+    Same origin policy and CORS:-
+        1. CORS - Cross-Origin Resource Sharing
+        2. Errors about origin can be avoided by using the cors middleware
+            https://github.com/expressjs/cors
+            npm install cors --save
+        3. Can be accessed using the following code
+            const cors = require('cors')
+            app.use(cors())
+        4. More Info about cors can be found here
+            https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 
-    Frontend production build
+    Application to the Internet:-
+        1. Learn about Heorku here  
+            https://devcenter.heroku.com/articles/getting-started-with-nodejs
+            https://www.heroku.com/
+        2. Create a new heroku account
+            a. install it in the computer
+            b. copy the getting started git repo to your computer
+            c. follows the docs until all he tutorials are completed
+            d. EXCELLENT EXAMPLE of Platform-As-A-service
+        3. THe git project of the above is added into the extras
+        4. My Project in heroku can be found here
+            https://fathomless-garden-70674.herokuapp.com/
+            https://fathomless-garden-70674.herokuapp.com/cool/
+        5. ERROR in running the code from here, TODO
+            https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-2
+        6. Use the commands found here to push the app to heroku
+            https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app
+        IN CASE OF ERROR:
+            rm -rf node_modules
+            npm install -g npm@latest
+            npm i core-util-is
 
-    Serving static files from the backend
+    Frontend production build:-
+        1. Read more about production build here
+            https://reactjs.org/docs/optimizing-performance.html#use-the-production-build
+            npm run build
+        2. Build code is minified
+            https://en.wikipedia.org/wiki/Minification_(programming)
 
-    Streamlining deploying of the frontend
+    Serving static files from the backend:-
+        1. "One option for deploying the frontend is to copy the production build (the build directory) to the root of the backend repository and configure the backend to show the frontend's main page (the file build/index.html) as its main page."
+            cp -r build ../../../osa3/notes-backend
+        2. express requires the help of a middleware to show the static content, its called static
+            http://expressjs.com/en/starter/static-files.html
+            app.use(express.static('build'))
+        3. build dir is checked first when a new HTTP GET request is received
+        4. we can change the baseURl to relative if the frontend and the backend are the Same
+        5. Refer course page for the detailed EXAMPLE
+        TLTR: moved frontend code in build dir to backend repo, thus making them into a single location
 
-    Proxy
+    Streamlining deploying of the frontend:-
+        1. following script can do the deployment, logging, git push to heroku automatically
+            {
+            "scripts": {
+                //...
+                "build:ui": "rm -rf build && cd ../../osa2/materiaali/notes-new && npm run build --prod && cp -r build ../../../osa3/notes-backend/",
+                "deploy": "git push heroku master",
+                "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy",    
+                "logs:prod": "heroku logs --tail"
+            }
+            }
+        2. Add the above code to the package.json
+        3. some npm commands to know about,
+            npm run build:ui - command does not work in windows, builds the frontend and copies the production version under the backend repository
+            npm rund deploy - releases the current backend to heroku
+            npm run deploy:full - combines these two and contains the necessary git commands to update the backend repository.
+            npm run logs:prod - to show the heroku logs.
+        4. 
+
+    Proxy:-
+        1. while we thingk about localhost, when a request is sent react handles it
+        2. For example, request to port 3000 and 3001 are handled by react
+        3. When deploying, we need to handles these situations manually through proxy command in package.json
+            "proxy": "http://localhost:3001"
+        4. Deployment pipeline
+            https://martinfowler.com/bliki/DeploymentPipeline.html
+        5. Deployment pipeline means an automated and controlled way to move the code from the computer of the developer through different tests and quality checks to the production environment.
     
     Exercises 3.9.-3.11.
+        3.9 phonebook backend step9     - 120 Mins
+            remember to go to phonebook completed in part2 
+            change the base url to include api in the service.js
+            build it using the npm tool
+            copy the build folder to the phonebook backend completed in part3a
+            install the dependencies in node_modules
+            refer for more code in index.js to complete this Exercise
+        3.10 phonebook backend step10   -
+        3.11 phonebook full stack       -
 
-Time Spent Learning Part 3a:  Mins
-Time Spent on Exercises:  Mins(Exercises 3.7-3.8)
+Time Spent Learning Part 3b: 5 + 15 +  Mins
+Time Spent on Exercises: 120 Mins(Exercises 3.7-3.8)
 Cumulative Time for Part3: 210+ Mins
