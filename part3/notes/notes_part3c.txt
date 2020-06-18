@@ -1,0 +1,92 @@
+Part 3c Saving data to MongoDB
+    Debugging Node applications:-
+        1. so author's argument is console.log is better in debugging with supportive links
+            https://tenderlovemaking.com/2016/02/05/i-am-a-puts-debuggerer.html
+            https://swizec.com/blog/javascript-debugging-slightly-beyond-console-log/swizec/6633
+        2. Visual Studio Code:-
+            a. you can use the debug menu to start debugging
+            b. run the app only through debugging to avoid port clash
+            c. use breakpoint whenever needed
+        3. Chrome Dev Tools:-
+            a. useful command to see the console in chrome with info
+                node --inspect index.js
+            b. The above command shows a node log in chrome inspect
+            c. Use the sources tab while debugging, to set breakpoints
+        4. Question everything:-
+            a. when athe app grows, it becomes tricky to find where the bug is
+            b. First, find the bug's location
+            c. Simple way to do that, is through the process of elimination
+            d. Follow the Toyota principle, "stop and fix" and don't code when there is a bug
+                http://gettingtolean.com/toyota-principle-5-build-culture-stopping-fix/#.Wjv9axP1WCQ
+
+    MongoDB:-
+        1. document database - stroe and retrieve semi-structured data
+            https://www.mongodb.com/
+            https://en.wikipedia.org/wiki/Document-oriented_database
+        2. But technically this falls under No SQL umbrella
+        3. Read the following, collections and documents chapeter in docs
+            https://docs.mongodb.com/manual/core/databases-and-collections/
+            https://docs.mongodb.com/manual/core/document/
+        4. In our exercise we will use this provider of MongoDB 
+            https://www.mongodb.com/cloud/atlas
+        5. CReate = an account in atlas, follow the instructions on the MOOC page
+            mongodb+srv://fullstack:<password>@cluster0-bbmcj.mongodb.net/<dbname>?retryWrites=true&w=majority
+        6. Use the mongoose library from the applications
+            http://mongoosejs.com/index.html
+            npm install mongoose --save
+        7. Created Something in Atlas :) 
+
+    Schema:-
+        1. Refer mongo.js 
+            // creating a new scheme
+            const noteSchema = new mongoose.Schema({
+                content: String,
+                date: Date,
+                important: Boolean,
+                })
+                // creating a new model
+                const Note = mongoose.model('Note', noteSchema)
+
+                const note = new Note({
+                content: 'HTML is Easy',
+                date: new Date(),
+                important: true,
+                })
+                // Saving the model to the server
+                note.save().then(result => {
+                console.log('note saved!')
+                mongoose.connection.close()
+                })
+
+    Creating and saving objects:-
+        1. Refer code above
+
+    Fetching objects from the database:-
+        Note.find({}).then(result => {
+        result.forEach(note => {
+            console.log(note)
+        })
+        mongoose.connection.close()
+        })
+        Another Example:
+            Note.find({ important: true }).then(result => {
+            // ...
+            })
+
+    Exercise 3.12.:-
+        3.12: Command-line database - 30 Mins :) A Fun Console Exercise
+
+    Backend connected to a database:-
+    Database configuration into its own module:-
+    Using database in route handlers:-
+    Verifying frontend and backend integration:-
+    Exercises 3.13.-3.14.:-
+    Error handling:-
+    Moving error handling into middleware:-
+    The order of middleware loading:-
+    Other operations:-
+    Exercises 3.15.-3.18.:-
+
+Time Spent Learning Part 3c: 8+45+5+5 Mins
+Time Spent on Exercises: 30 Mins(Exercises 3.12-3.8)
+Cumulative Time for Part3: 210+270+ Mins
