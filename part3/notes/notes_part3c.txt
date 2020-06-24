@@ -77,16 +77,67 @@ Part 3c Saving data to MongoDB
         3.12: Command-line database - 30 Mins :) A Fun Console Exercise
 
     Backend connected to a database:-
+        1. More info on hwo to connect the phone backedn to the mongo db directly and access the notes app
+        2. But it's only an example and the sample code is in extras/part3c
+        3. ANd some other internal information is moved form the mongo db, we remove it in the scheme, refer code.
+
     Database configuration into its own module:-
+        1. create a note.js and add the code, sample is in extras/part3c
+        2. Refresh how to define the node modules again, the following is an example of ES6 declaration
+            https://nodejs.org/docs/latest-v8.x/api/modules.html
+            node declaration sample follows,
+            https://nodejs.org/docs/latest-v8.x/api/modules.html
+        3. So the module note.js can be accessible outsile thourgh the last command, 
+            module.exports = mongoose.model('Note', noteSchema)
+            Note, nothing else will be accessibleutside the module.
+        4. Refer the code to import the note.js in the index.js
+            const Note = require('./models/note')
+        5. Also use the dotenv library,
+            npm install dotenv --save
+            This allows us to use the env vraibales declared in the .env files, we have declared the URL, PORt numbe here
+
     Using database in route handlers:-
+        1. Check app.post command to know how to insert a new note to the mongo db
+            app.post('/api/notes', (request, response) => {
+            const body = request.body
+
+            if (body.content === undefined) {
+                return response.status(400).json({ error: 'content missing' })
+            }
+
+            const note = new Note({
+                content: body.content,
+                important: body.important || false,
+                date: new Date(),
+            })
+
+            note.save().then(savedNote => {
+                response.json(savedNote)
+            })
+            })
+
     Verifying frontend and backend integration:-
+        1. We are just checking if the code we implemented works and the data is added to the mongo db
+        2. you can find the sample completed code in the following URL
+            https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-4
+
     Exercises 3.13.-3.14.:-
+        3.13: Phonebook database, step1 - DONE
+        3.14: Phonebook database, step2 - DONE
+        Refer Code
+        
     Error handling:-
     Moving error handling into middleware:-
     The order of middleware loading:-
     Other operations:-
     Exercises 3.15.-3.18.:-
 
-Time Spent Learning Part 3c: 8+45+5+5 Mins
-Time Spent on Exercises: 30 Mins(Exercises 3.12-3.8)
+// npm install dotenv --save
+// npm install --save-dev nodemon
+// npm install express --save
+// npm install morgan
+// npm install cors --save
+
+Time Spent Learning Part 3c: 8+45+5+5+15+15+5+15 Mins
+Time Spent on Exercises: 30+120 Mins(Exercises 3.12-3.8)
 Cumulative Time for Part3: 210+270+ Mins
