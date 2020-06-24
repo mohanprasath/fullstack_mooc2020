@@ -98,6 +98,22 @@ app.get("/api/persons", (request, response, next) => {
     }).catch(error => next(error))
   })
 
+app.put("/api/persons/:id", (request, response, next) => {
+    const id = request.params.id
+    const body = request.body
+
+    const updatedPerson = {
+        name: body.name,
+        number: body.number
+    }
+
+    Person.findByIdAndUpdate(id, updatedPerson, { new: true, runValidators: true, context: "query" })
+        .then(result => {
+            response.json(result)
+        })
+        .catch(error => next(error))
+})
+
   
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
