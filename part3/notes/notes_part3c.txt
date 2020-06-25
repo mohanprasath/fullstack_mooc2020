@@ -127,10 +127,44 @@ Part 3c Saving data to MongoDB
         Refer Code
         
     Error handling:-
+        1. handle errors with their relvant error types, 400 - bad request, 404- not found
+        2. use console.log effectively
+
     Moving error handling into middleware:-
+        1. What's middleware again?
+
+        2. Info: external error tracking system; sentry, TODO CHECK
+            https://sentry.io/welcome/
+        3. next is usually called to move to the next url in the line
+        4. when an argument is passed to the function then it's actually an error message is passed to a middleware
+        5. A sample code in the express middleware is shown below,
+            https://expressjs.com/en/guide/error-handling.html
+            const errorHandler = (error, request, response, next) => {
+            console.error(error.message)
+            if (error.name === 'CastError') {
+                return response.status(400).send({ error: 'malformatted id' })
+            } 
+            next(error)
+            }
+            app.use(errorHandler)
+        6. some specific errors are handled by mongo like CastError, other errors are passed down the line
+
     The order of middleware loading:-
+        1. remmeber the order of the middleware is very deendent on the code, so do it right.
+
     Other operations:-
+        1. learn more mongoose methods like the following one
+            https://mongoosejs.com/docs/api.html#model_Model.findByIdAndRemove
+            findByIdAndRemove
+            findByIdAndUpdate
+        2. sample code can be found in the following url
+            https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-5
+
     Exercises 3.15.-3.18.:-
+        3.15: Phonebook database, step3     - 
+        3.16: Phonebook database, step4     - 
+        3.17 *: Phonebook database, step5   - 
+        3.18 *: Phonebook database step6    - 
 
 // npm install dotenv --save
 // npm install --save-dev nodemon
@@ -138,6 +172,6 @@ Part 3c Saving data to MongoDB
 // npm install morgan
 // npm install cors --save
 
-Time Spent Learning Part 3c: 8+45+5+5+15+15+5+15 Mins
+Time Spent Learning Part 3c: 8+45+5+5+15+15+5+155+10+5 Mins
 Time Spent on Exercises: 30+120 Mins(Exercises 3.12-3.8)
 Cumulative Time for Part3: 210+270+ Mins
