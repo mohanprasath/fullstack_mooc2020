@@ -164,7 +164,7 @@ Part 3c Saving data to MongoDB
         3.15: Phonebook database, step3     - 10 Mins
         3.16: Phonebook database, step4     - 10 Mins
         3.17 *: Phonebook database, step5   - 10 Mins
-        3.18 *: Phonebook database step6    - 
+        3.18 *: Phonebook database step6    - 20 Mins
 
 // npm install dotenv --save
 // npm install --save-dev nodemon
@@ -172,6 +172,6 @@ Part 3c Saving data to MongoDB
 // npm install morgan
 // npm install cors --save
 
-Time Spent Learning Part 3c: 8+45+5+5+15+15+5+155+10+5 Mins
-Time Spent on Exercises: 30+120 Mins(Exercises 3.12-3.8)
-Cumulative Time for Part3: 210+270+ Mins
+Time Spent Learning Part 3c: 270 Mins
+Time Spent on Exercises: 30+120+50 Mins(Exercises 3.12-3.18)
+Cumulative Time for Part3: 210+270+470 Mins

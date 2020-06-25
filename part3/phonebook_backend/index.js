@@ -45,14 +45,18 @@ app.use(express.json())
 
   // Lists a person when an id is provided in the url
   app.get('/api/persons/:id', (request, response) => {
-    const id = Number(request.params.id)
-    Person.findById((id)).then(
+    // error was here, previously converted the it to Number resulting in sending a NAN to the mongo DB page
+    const id = request.params.id
+    Person.findById(id).then(
       result => {
         if(!result){
           return response.status(404).end()
         }
         return response.json(result)
-      }).catch(error => console.log(error))
+      }).catch(error => {
+        console.log(error);
+        return response.status(404).end()
+      })
   })
 
   // remove a person from the phonebook when the user chooses the id button
