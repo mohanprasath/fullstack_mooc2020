@@ -163,7 +163,7 @@ Part 3c Saving data to MongoDB
     Exercises 3.15.-3.18.:-
         3.15: Phonebook database, step3     - 10 Mins
         3.16: Phonebook database, step4     - 10 Mins
-        3.17 *: Phonebook database, step5   - 
+        3.17 *: Phonebook database, step5   - 10 Mins
         3.18 *: Phonebook database step6    - 
 
 // npm install dotenv --save
