@@ -104,6 +104,22 @@ app.use(express.json())
         .catch(error => next(error))
   })
 
+  // error handling - unknown endpoint and handling cast and validation errors
+  const unknownEndpoint = (request, response) => {
+    response.status(404).send({error: "Unknown Endpoint!"})
+  }
+  app.use(unknownEndpoint)
+  const errorHandler = (error, request, response, next) => {
+    console.error(error.message);
+    if(error.name === "CastError"){
+      return response.status(400).join({error: "Malformed ID!"})
+    } else if(error.name === "ValidationError") {
+      return response.status(400).join({error: error.message})
+    }
+    next(error)
+  }
+  app.use(errorHandler)
+
   // listens on a port 
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
