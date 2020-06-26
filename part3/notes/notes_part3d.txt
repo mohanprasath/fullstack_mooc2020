@@ -47,11 +47,37 @@ Part 3d Validation and ESLint
             https://young-caverns-85015.herokuapp.com/
     
     Lint:-
+        1. Lint and what is it. Simply it's used to fidn the errors
+            https://en.wikipedia.org/wiki/Lint_(software)
+        2. More info about, Static program analysis
+                https://en.wikipedia.org/wiki/Static_program_analysis
+            And about checkstyle,
+                https://checkstyle.sourceforge.io/
+                npm install eslint --save-dev
+            then run the following command to generate the esling js file,
+                node_modules/.bin/eslint --init
+        3. add the npm lint command to the package.json scripts list
+            npm script
+        4. also add a new file to the project folder called .eslintignore
+            inside it add build folder, like how we add entries to the.gitignore
+        5. add the eslint-plugin to the editor to makes the fixes easier, from here for vscode
+            https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
+        6. learn more about eslint rules from here
+            https://eslint.org/docs/rules/
+        7. Read more about style guides here,
+            https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb
+            https://github.com/airbnb/javascript
+        8. completed sample code can be found here  
+            https://github.com/fullstack-hy2020/part3-notes-backend/tree/part3-6
     
     Exercise 3.22.
+        3.22: Lint configuration - 20 Mins a fun exercise, needs more personal learning about the style guides. But a fun one TODO
+        
 
 // npm install --save mongoose-unique-validator
+// npm install eslint --save-dev
+// from the folder where you want the eslint.js file do this, node_modules/.bin/eslint --init
 
-Time Spent Learning Part 3d: 2010+10 Mins
-Time Spent on Exercises: 30+60+20 Mins(Exercises 3.19-3.22)
-Cumulative Time for Part3: 210+270+470 Mins
+Time Spent Learning Part 3d: 70 Mins
+Time Spent on Exercises: 30+60+20+10 Mins(Exercises 3.19-3.22)
+Cumulative Time for Part3: 210+270+470+190 Mins

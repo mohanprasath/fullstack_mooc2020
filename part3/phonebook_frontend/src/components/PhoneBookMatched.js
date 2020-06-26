@@ -1,7 +1,5 @@
-const PhoneBookMatched = ({matched}) => {
-    return(
-        matched
-    )
-}
+const PhoneBookMatched = ({ matched }) => (
+  matched
+);
 
 export default PhoneBookMatched;
