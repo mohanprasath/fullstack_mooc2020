@@ -1,7 +1,7 @@
 # fullstack_mooc2020
 https://fullstackopen.com/en/about
 
-Each folder of type part## contains exercises done for that part in the MOOC course, and the notes and the pdf of webpages inside notes folder.
+Each folder of type part## contains exercises done for that part in the MOOC course from University of Helsinki, and the notes and the pdf of webpages inside notes folder.
 
 Learning and some refreshing:
 1. Node.js
