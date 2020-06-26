@@ -3,3 +3,7 @@ node_modules/
 **/node_modules/
 .env
 part3/phonebook_backend/.env
+part3/phonebook_backend/.env
+extras/part3-notes-backend/
+extras/part2-notes/
+part3/phonebook_backend/.env
