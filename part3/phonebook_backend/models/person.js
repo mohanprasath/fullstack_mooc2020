@@ -2,6 +2,10 @@ const mongoose = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator');
 const url = process.env.MONGODB_URI
 
+// removing console warning on deprication
+mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);
+
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 .then(result => {
     console.log('connected to MongoDB')
@@ -13,9 +17,16 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 const personSchema = new mongoose.Schema({
     name: {
       type: String,
-      unique: true
+      required: true,
+      unique: true,
+      minlength: 3
     },
-    number: String
+    number: {
+      type: String,
+      required: true,
+      unique: true,
+      minlength: 8
+    }
   })
 
   personSchema.plugin(uniqueValidator);

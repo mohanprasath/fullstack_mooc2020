@@ -40,7 +40,8 @@ Part 3d Validation and ESLint
             BEWARE: res.status().join will throw error
             https://github.com/visionmedia/supertest/issues/416
             I changed the code to res.status().send() // TODO CHECK
-        3.20 *: Phonebook database, step8                   - 
+        3.20 *: Phonebook database, step8                   - 60 Mins DONE,  Bit tricky, still only the css works, couldn't set the error message from the backend
+            CSS error was there, fixed it by a new build from the frontend
         3.21 Deploying the database backend to production   - 
     
     Lint:-

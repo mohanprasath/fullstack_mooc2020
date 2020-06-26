@@ -77,7 +77,7 @@ Part3b Deploying app to internet:
         2. Add the above code to the package.json
         3. some npm commands to know about,
             npm run build:ui - command does not work in windows, builds the frontend and copies the production version under the backend repository
-            npm rund deploy - releases the current backend to heroku
+            npm run deploy - releases the current backend to heroku
             npm run deploy:full - combines these two and contains the necessary git commands to update the backend repository.
             npm run logs:prod - to show the heroku logs.
         4. 

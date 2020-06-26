@@ -49,7 +49,7 @@ const App = () => {
             setSuccessMessage(null)
           }, 5000)
         }).catch(() => {
-          setErrorMessage(`${newNameObj.name}'s phone number is not edited in the Phone Book.`)
+          setErrorMessage(`${newNameObj.name}'s phone number is not edited in the Phone Book.` + `${errorMessage !== null?errorMessage:''}`)
           setTimeout(() => {setErrorMessage(null)}, 5000)
         })
       }
@@ -67,7 +67,7 @@ const App = () => {
         }, 5000)
       }).catch(() => {
         // console.log("Error in string the phone number in the database")
-        setErrorMessage(`${newNameObj.name}'s phone number is not added to the Phone Book.`)
+        setErrorMessage(`${newNameObj.name}'s phone number is not added to the Phone Book. ` + `${errorMessage !== null?errorMessage:''}`)
         setTimeout(() => {setErrorMessage(null)}, 5000)
       })     
     }    
