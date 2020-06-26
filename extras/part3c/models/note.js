@@ -12,8 +12,13 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     console.log('error connecting to MongoDB:', error.message)
   })
 
+// an example for part 3d
 const noteSchema = new mongoose.Schema({
-  content: String,
+  content: {
+    type: String,
+    minlength: 7,
+    required: true
+  },
   date: Date,
   important: Boolean,
 })

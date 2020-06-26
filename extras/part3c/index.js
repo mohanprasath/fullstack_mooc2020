@@ -1,15 +1,16 @@
+require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const cors = require('cors')
 // const mongoose = require('mongoose')
 const Note = require('./models/note')
-require('dotenv').config()
 // npm install dotenv --save
 // npm install --save-dev nodemon
 // npm install express --save
 // npm install morgan
 // npm install cors --save
 // npm install mongoose --save
+// npm install --save mongoose-unique-validator
 // phonebook backend step10
 const app = express()
 morgan.token('data', function (req) { return JSON.stringify(req.body) })
@@ -68,9 +69,9 @@ app.get('/api/notes/:id', (request, response) => {
   })
 })
 
-app.post('/api/notes', (request, response) => {
+app.post('/api/notes', (request, response, next) => {
   const body = request.body
-
+  // checking if the data being sent is not empty or null
   if (body.content === undefined) {
     return response.status(400).json({ error: 'content missing' })
   }
@@ -79,11 +80,12 @@ app.post('/api/notes', (request, response) => {
     content: body.content,
     important: body.important || false,
     date: new Date(),
+
   })
 
   note.save().then(savedNote => {
     response.json(savedNote)
-  })
+  }).catch(error => next(error))
 })
 
   app.get('/', (req, res) => {
@@ -152,6 +154,20 @@ app.post('/api/notes', (request, response) => {
   
     response.json(person)
   })
+
+  const errorHandler = (error, request, response, next) => {
+    console.error(error.message)
+  
+    if (error.name === 'CastError') {
+      return response.status(400).send({ error: 'malformatted id' })
+    } else if (error.name === 'ValidationError') {
+      return response.status(400).json({ error: error.message })
+    }
+  
+    next(error)
+  }
+
+  app.use(errorHandler)
 
   const PORT = process.env.PORT || 3001
   //console.log(PORT)
