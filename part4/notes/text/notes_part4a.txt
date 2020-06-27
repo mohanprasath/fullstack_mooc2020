@@ -15,11 +15,16 @@ Part 4a Structure of backend application, introduction to testingÖ+
             │   ├── config.js
             │   ├── logger.js
             │   └── middleware.js  
-        2. 
+        2. The above is the required structure for the blog ass we are going to build.
+        3. A sample code of the notes app can be found in the following links
+            https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-1
+
     Exercises 4.1.-4.2.
+        4.1 Blog list, step1 - 15 Mins
+
     Testing Node applications
     Exercises 4.3.-4.7.
 
-Time Spent Learning Part 4a:  Mins
-Time Spent on Exercises:  Mins(Exercises 4.1-4.7)
+Time Spent Learning Part 4a: 15 Mins
+Time Spent on Exercises: 15 Mins(Exercises 4.1-4.7)
 Cumulative Time for Part4:  Mins
