@@ -1,0 +1,9 @@
+npm install dotenv --save
+npm install --save-dev nodemon
+npm install express --save
+npm install morgan
+npm install mongoose --save
+npm install cors --save
+npm install eslint --save-dev
+
+npm install --save-dev express cors mongoose dotenv eslint nodemon

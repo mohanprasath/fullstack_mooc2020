@@ -1,0 +1,25 @@
+Part 4a Structure of backend application, introduction to testingÖ+
+    Project structure:- 
+        1. A project structure to show the best practice is shown below
+            ├── index.js
+            ├── app.js
+            ├── build
+            │   ├── ...
+            ├── controllers
+            │   └── notes.js
+            ├── models
+            │   └── note.js
+            ├── package-lock.json
+            ├── package.json
+            ├── utils
+            │   ├── config.js
+            │   ├── logger.js
+            │   └── middleware.js  
+        2. 
+    Exercises 4.1.-4.2.
+    Testing Node applications
+    Exercises 4.3.-4.7.
+
+Time Spent Learning Part 4a:  Mins
+Time Spent on Exercises:  Mins(Exercises 4.1-4.7)
+Cumulative Time for Part4:  Mins
