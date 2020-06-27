@@ -1,0 +1,10 @@
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Content-Type: application/json; charset=utf-8
+Content-Length: 162
+ETag: W/"a2-dPE/6fllKLCl5NIVftVw/gVpa84"
+Date: Sat, 27 Jun 2020 14:21:27 GMT
+Connection: close
+
+{"_id":"5ef755e67a825536d829c5fd","title":"My Second blog entry in MongoDB and React!","author":"MPC","url":"http://localhost:3003/api/blogs/2","likes":8,"__v":0}

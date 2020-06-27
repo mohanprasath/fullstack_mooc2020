@@ -1,0 +1,10 @@
+POST /api/blogs/ HTTP/1.1
+Host: localhost:3003
+Content-Type: application/json
+
+{
+    "title":"My Second blog entry in MongoDB and React!",
+    "author":"MPC",
+    "url":"http://localhost:3003/api/blogs/2",
+    "likes":8
+}
