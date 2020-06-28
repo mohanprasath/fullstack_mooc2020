@@ -60,8 +60,8 @@ Part 4a Structure of backend application, introduction to testingÖ+
         4.6*: helper functions and unit tests, step4    - 30 Mins
             TODO - INFO New Lib https://lodash.com/
             Refer the code in utils/list_helper.js in blog_list
-        4.7*: helper functions and unit tests, step5    - 
+        4.7*: helper functions and unit tests, step5    - 15 Mins
 
-Time Spent Learning Part 4a: 15+30 Mins
-Time Spent on Exercises: 15+30+15+15+30 Mins(Exercises 4.1-4.7)
-Cumulative Time for Part4:  Mins
+Time Spent Learning Part 4a: 45 Mins
+Time Spent on Exercises: 15+30+15+15+30+15 Mins(Exercises 4.1-4.7)
+Cumulative Time for Part4: 165 Mins

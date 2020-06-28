@@ -30,9 +30,22 @@ const mostBlogs = (blogs) => {
   return { author: authorsWithMostBlogs[0], blogs: authorsWithMostBlogs[1] }
 }
 
+const mostLikes = (blogs) => {
+  if (blogs.length === 0) return undefined
+  const authorsAndLikes = {}
+  blogs.forEach(blog => {
+    authorsAndLikes[blog.author] = (authorsAndLikes[blog.author] || 0) + blog.likes
+  })
+  // follow the previous task logic to complete this
+  const sortedAuthorsByLikesTotal = _.toPairs(authorsAndLikes).sort((a, b) => b[1] - a[1])
+  const authorsWithMostLikes = sortedAuthorsByLikesTotal[0]
+  return { author: authorsWithMostLikes[0], likes: authorsWithMostLikes[1] }
+}
+
 module.exports = {
   dummy,
   totalLikes,
   favoriteBlog,
-  mostBlogs
+  mostBlogs,
+  mostLikes
 }
