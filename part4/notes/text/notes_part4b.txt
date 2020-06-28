@@ -1,0 +1,70 @@
+Part 4b Testing the backend:-
+    Notes:- 
+        1. mock testing for the backend can be done through mongo-mock
+            https://github.com/williamkapke/mongo-mock
+        2. testing al the components of an application is called as integration testing 
+            https://en.wikipedia.org/wiki/Integration_testing
+        
+    Test environment:-
+        1. we can specify the testing state of the application: production, development, testing
+        2. This can be done using the NODE_ENV variable
+        3. for example, use the following commands in the scripts in package.json
+            "start": "NODE_ENV=production node index.js",
+            "dev": "NODE_ENV=development nodemon index.js",
+            "test": "NODE_ENV=test jest --verbose --runInBand"
+        4. to stop jest from Running tests in parallel use the runinband commands
+            https://jestjs.io/docs/en/cli.html#--runinband
+        5. when NODE_ENV is specified and we use the commands, the node knows the environment approp
+            npm run dev - development
+            npm start - production
+        6. the above commands will have trouble running in windows, use the following commands
+            https://www.npmjs.com/package/cross-env
+        7. add the cross-env command before the script commands in package.json
+            {
+            // ...
+            "scripts": {
+                "start": "cross-env NODE_ENV=production node index.js",
+                "dev": "cross-env NODE_ENV=development nodemon index.js",
+                // ...
+                "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
+            },
+            // ...
+            }
+        8. use mongo-db for testing, or a single db for testing or in-memory db, or use docker
+            https://docs.mongodb.com/manual/core/inmemory/
+        9. simple change the URI based on NODE_ENV in the config file
+            if (process.env.NODE_ENV === 'test') {
+            MONGODB_URI = process.env.TEST_MONGODB_URI
+            }
+           TEST_MONGODB_URI=mongodb+srv://fullstack:secret@cluster0-ostce.mongodb.net/note-app-test?retryWrites=true
+        10. some existing config libraries are
+            https://github.com/lorenwest/node-config
+        11.  sample completed code of the above is here
+            https://github.com/fullstack-hy2020/part3-notes-backend/tree/part4-2
+
+    supertest:-
+        1. New package to test
+            https://github.com/visionmedia/supertest
+            npm install --save-dev supertest
+        2. a package used to test the app.js module
+        3. first example of the async/await structure in part4a example
+            https://facebook.github.io/jest/docs/en/asynchronous.html
+        4. afterALl methods closes the momgodb connections
+            https://facebook.github.io/jest/docs/en/api.html#afterallfn-timeout
+        5. 
+
+    Initializing the database before tests:-
+    Running tests one by one:-
+    async/await:-
+    async/await in the backend:-
+    More tests and refactoring the backend:-
+    Error handling and async/await:-
+    Eliminating the try-catch:-
+    Optimizing the beforeEach function:-
+    Exercises 4.8.-4.12.
+    Refactoring tests:-
+    Exercises 4.13.-4.14.
+
+Time Spent Learning Part 4b: 20+ Mins
+Time Spent on Exercises:  Mins(Exercises 4.8-4.14)
+Cumulative Time for Part4: 165+ Mins
