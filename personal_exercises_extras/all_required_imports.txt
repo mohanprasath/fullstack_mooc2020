@@ -6,6 +6,7 @@ npm install mongoose --save
 npm install cors --save
 npm install eslint --save-dev
 npm install --save-dev jest
+npm i --save lodash
 
 npm install --save-dev express cors mongoose dotenv eslint nodemon
 
