@@ -52,12 +52,14 @@ Part 4a Structure of backend application, introduction to testingÖ+
                 2. so the results would look nicer and we can use this struct to look more functionality based test groups
 
     Exercises 4.3.-4.7.
-        4.3: helper functions and unit tests, step1     - 
-        4.4: helper functions and unit tests, step2     - 
+        4.3: helper functions and unit tests, step1     - 15 Mins
+        4.4: helper functions and unit tests, step2     - 10 Mins
+            Run a single test with the follwing command
+                npm test -- -t 'when list has only one blog, equals the likes of that'
         4.5*: helper functions and unit tests, step3    - 
         4.6*: helper functions and unit tests, step4    - 
         4.7*: helper functions and unit tests, step5    - 
 
-Time Spent Learning Part 4a: 15 Mins
-Time Spent on Exercises: 15+30 Mins(Exercises 4.1-4.7)
+Time Spent Learning Part 4a: 15+30 Mins
+Time Spent on Exercises: 15+30+15 Mins(Exercises 4.1-4.7)
 Cumulative Time for Part4:  Mins
