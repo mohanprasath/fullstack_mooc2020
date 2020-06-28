@@ -21,10 +21,43 @@ Part 4a Structure of backend application, introduction to testingÖ+
 
     Exercises 4.1.-4.2.
         4.1 Blog list, step1 - 15 Mins
+        4.2 Blog list, step2 - 30 Mins
 
     Testing Node applications
+        1. automated testing - unit tests,
+        2. Sample unit tests, refer personal_exercises_examples/[part4a/utils/for_testing.js
+            More information about functional programming in js 
+                https://www.youtube.com/watch?v=BMUiFMZr7vk&list=PL0zVEGEvSaeEd9hlmCXrk5yUyqUag-n84
+                RECOMMENDED, a nice, clear and funny guy teaches you stuff
+        3. some testing libraries to learn or use are 
+            jest    - https://jestjs.io/
+            mocha   - https://mochajs.org/
+            ava     - https://mochajs.org/
+        4. For the course, we use jest as it's recommended for React
+            Windows users: Jest may not work if the path of the project directory contains a directory that has spaces in its name.
+                npm install --save-dev jest
+            and add the following commands to the package.json file,
+                "test": "jest --verbose"
+            and alos add this,
+                "jest": {
+                    "testEnvironment": "node"
+                    }
+        5. declaring files in utils as a fuction and testing their return values in functions inside test modules
+        6. A fun Learning point, seems very interesting
+            a. intall jest using npm
+            b. config the package.json for test commands
+            c. add a jest config file and remmeber to add the test command in eslint to avoid errors
+            d. run the tests using npm command
+                1. tests can be put inside a single blocks
+                2. so the results would look nicer and we can use this struct to look more functionality based test groups
+
     Exercises 4.3.-4.7.
+        4.3: helper functions and unit tests, step1     - 
+        4.4: helper functions and unit tests, step2     - 
+        4.5*: helper functions and unit tests, step3    - 
+        4.6*: helper functions and unit tests, step4    - 
+        4.7*: helper functions and unit tests, step5    - 
 
 Time Spent Learning Part 4a: 15 Mins
-Time Spent on Exercises: 15 Mins(Exercises 4.1-4.7)
+Time Spent on Exercises: 15+30 Mins(Exercises 4.1-4.7)
 Cumulative Time for Part4:  Mins

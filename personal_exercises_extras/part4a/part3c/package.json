@@ -1,0 +1,28 @@
+{
+  "name": "phonebook_backend",
+  "version": "1.0.0",
+  "description": "MOOC Course 2020 on Full Stack Part 3",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \\\"Phone Book Backend Application\\\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "phonebook",
+    "backend"
+  ],
+  "author": "Mohan",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.9.20",
+    "nodemon": "^2.0.4"
+  }
+}

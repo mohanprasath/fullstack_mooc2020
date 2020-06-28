@@ -9,14 +9,18 @@
     "build:ui": "rm -rf build && cd ../../../2/luento/notes && npm run build && cp -r build ../../../3/luento/notes-backend",
     "deploy": "git push heroku master",
     "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "logs:prod": "heroku logs --tail",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "jest --verbose"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^6.8.0",
+    "jest": "^26.1.0",
     "nodemon": "^2.0.2"
   },
   "dependencies": {

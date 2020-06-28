@@ -5,5 +5,18 @@ npm install morgan
 npm install mongoose --save
 npm install cors --save
 npm install eslint --save-dev
+npm install --save-dev jest
 
 npm install --save-dev express cors mongoose dotenv eslint nodemon
+
+sample script in package.json file should be,
+"scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build:ui": "rm -rf build && cd ../../../2/luento/notes && npm run build && cp -r build ../../../3/luento/notes-backend",
+    "deploy": "git push heroku master",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
+    "logs:prod": "heroku logs --tail",
+    "lint": "eslint .",
+    "test": "jest --verbose"
+  },
