@@ -36,7 +36,7 @@ Part 4b Testing the backend:-
             if (process.env.NODE_ENV === 'test') {
             MONGODB_URI = process.env.TEST_MONGODB_URI
             }
-           TEST_MONGODB_URI=mongodb+srv://fullstack:secret@cluster0-ostce.mongodb.net/note-app-test?retryWrites=true
+           TEST_MONGODB_URI=mongodb+srv://fullstack:<password>@cluster0-ostce.mongodb.net/note-app-test?retryWrites=true
         10. some existing config libraries are
             https://github.com/lorenwest/node-config
         11.  sample completed code of the above is here

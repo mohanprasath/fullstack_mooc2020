@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 const Countries = ({countries, setCountries, filterCountry, setFilterCountry}) => {
-    const api_key = process.env.REACT_APP_API_KEY
+    const api_key = import.meta.env.VITE_API_KEY
     const [ weatherData, setWeatherData ] = useState(null)
     const results = countries.filter(country => country.name.toLowerCase().includes(filterCountry.toLowerCase()))
         if (results.length > 10){
