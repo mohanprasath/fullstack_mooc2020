@@ -1,12 +1,9 @@
 import {
- set, connect, Schema, model 
+ connect, Schema, model 
 } from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 const url = process.env.MONGODB_URI;
 
-// removing console warning on deprication
-set('useFindAndModify', false);
-set('useCreateIndex', true);
 
 connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
