@@ -61,7 +61,7 @@ app.get('/api/persons/:id', (request, response, next) => {
 // remove a person from the phonebook when the user chooses the id button
 app.delete('/api/persons/:id', (request, response, next) => {
   const { id } = request.params;
-  Person.findByIdAndRemove(id).then(() => {
+  Person.findByIdAndDelete(id).then(() => {
     response.status(204).end();
   }).catch((error) => next(error));
 });
